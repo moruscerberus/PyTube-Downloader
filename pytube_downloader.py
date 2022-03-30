@@ -38,21 +38,29 @@ print(Fore.RED + f'views:  \033[39m {video_object.views / 1000000} million')
 print(Fore.RED + f'author: \033[39m {video_object.author}')
 
 
+# video streams
+# for stream in video_object.streams:
+#     print(stream)
+
 #download
 print(Fore.RED + 'download:' + 
-Fore.GREEN + '(b)est \033[39m| ' + 
-Fore.YELLOW + '(w)orst \033[39m|' + 
+Fore.GREEN + '(bn)est WEBM (No Audio)\033[39m| ' + 
+Fore.GREEN + '(b)est MP4 (No Audio)\033[39m|'+
+Fore.YELLOW + '(g)ood enough (Audio)\033[39m|' + 
+Fore.YELLOW + '(d)disgusting (Audio)\033[39m|' + 
 Fore.BLUE + '(a)udio \033[39m| (e)xit')
 download_choise = input('choice: ')
 
 location = r''
 
-video_object.streams.is_progressive = False
 match download_choise:
+    case 'ba':
+        video_object.streams.filter(progressive=False, file_extension='webm').order_by('resolution').last().download() # , file_extension='mp4'
     case 'b':
+        video_object.streams.filter(progressive=False, file_extension='mp4').order_by('resolution').last().download() # , file_extension='mp4'
+    case 'g':
         video_object.streams.get_highest_resolution().download()
-        # video_object.streams.get_by_itag(401).download()
-    case 'w':
+    case 'd':
         video_object.streams.get_lowest_resolution().download()
     case 'a':
         video_object.streams.get_audio_only().download()
