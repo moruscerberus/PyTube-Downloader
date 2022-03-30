@@ -44,11 +44,11 @@ print(Fore.RED + f'author: \033[39m {video_object.author}')
 
 #download
 print(Fore.RED + 'download:' + 
-Fore.GREEN + '(bn)est WEBM (No Audio)\033[39m| ' + 
-Fore.GREEN + '(b)est MP4 (No Audio)\033[39m|'+
-Fore.YELLOW + '(g)ood enough (Audio)\033[39m|' + 
-Fore.YELLOW + '(d)disgusting (Audio)\033[39m|' + 
-Fore.BLUE + '(a)udio \033[39m| (e)xit')
+Fore.GREEN + '(bn)est [WEBM] (No Audio)\033[39m| ' + 
+Fore.GREEN + '(b)est [MP4] (No Audio)\033[39m|'+
+Fore.YELLOW + '(g)ood enough [MP4] (Audio)\033[39m|' + 
+Fore.YELLOW + '(d)disgusting [MP4] (Audio)\033[39m|' + 
+Fore.BLUE + '(a)udio Only \033[39m| (e)xit')
 download_choise = input('choice: ')
 
 location = r''
